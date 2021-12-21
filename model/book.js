@@ -6,5 +6,5 @@ module.exports.list = async () => {
 }
 
 module.exports.add = async(book) => {
-    await sequelize.query(`INSERT INTO books (title, description, author) VALUES ('${book.title}, ${book.description}, ${book.author}')`)
+    await sequelize.query(`INSERT INTO books (title, description, author) VALUES ('${book.title}', '${book.description}', ${book.author})`)
 }

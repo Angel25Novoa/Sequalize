@@ -1,13 +1,15 @@
 const bookController = require('../controller/book')
 
 module.exports = (app) => {
-    app.get('/books', (req, res) => {
-        res.json({message: "Holis"})
+    app.get('/book', async(req, res) => {
+        let result = await bookController.listBooks()
+        res.json(result)
     })
 
-    app.post('/books', (req, res) => {
+    app.post('/book', async(req, res) => {
         let book = req.body
         console.log(book)
-        res.json(book)
+        let result = await bookController.addBook(book)
+        res.json(result)
     })
 }
